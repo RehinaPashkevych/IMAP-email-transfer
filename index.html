@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-lang="title">IMAP Email Transfer Help</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="language-selector">
+        <button onclick="changeLanguage('en')">EN</button>
+        <button onclick="changeLanguage('pl')">PL</button>
+        <button onclick="changeLanguage('ua')">UA</button>
+    </div>
+    <h1 data-lang="header">IMAP Email Transfer Help Documentation</h1>
+    <details>
+        <summary data-lang="overviewTitle">Overview</summary>
+        <p data-lang="overviewContent">This document provides a basic understanding of how IMAP requests are used within this application to transfer emails between servers.</p>
+    </details>
+    <details>
+        <summary data-lang="whatIsImapTitle">What is IMAP?</summary>
+        <p data-lang="whatIsImapContent">IMAP (Internet Message Access Protocol) allows users to access and manipulate their email on a remote server through a local client. Unlike POP, IMAP syncs with the server, allowing multiple clients to see the same folder state.</p>
+    </details>
+    <details>
+        <summary data-lang="usingImapTitle">Using IMAP in This Application</summary>
+        <p data-lang="usingImapIntro">Follow these detailed steps to use IMAP effectively in this application:</p>
+        <ol>
+            <li data-lang="step1">Provide URL, Email and Password: Start by entering your server's URL, email address and password. Test your connection by listing mailboxes to ensure you're connected correctly.</li>
+            <li data-lang="step2">View Mailbox List: Click 'List of Mailboxes' to see a list of all folders/mailboxes. Each mailbox is displayed with its attributes like so:
+              
+                    <li data-lang="mailboxExample1">* LIST (\HasNoChildren \Drafts) "/" "Drafts": Indicates a Drafts folder with no child folders.</li>
+                    <li data-lang="mailboxExample2">* LIST (\HasNoChildren) "/" "INBOX": Shows the INBOX which holds all incoming emails.</li>
+                    <li data-lang="mailboxExample3">* LIST (\NoInferiors \Junk) "/" "Junk": A Junk folder that cannot contain sub-folders.</li>
+            
+            </li>
+            <li data-lang="step3">Select a Mailbox: Typically, this is 'INBOX' for incoming mail. Use the SELECT command to focus on a mailbox.</li>
+            <li data-lang="step4">Use IMAP Commands: Implement commands to manage your emails. Examples include:
+                
+                    <li data-lang="imapExample1">UID SEARCH SINCE 15-Apr-2024: Searches for all emails received since April 15, 2024.</li>
+                    <li data-lang="imapExample2">UID FETCH <UID> (RFC822) or FETCH <UID> BODY[TEXT]: Fetches the entire email corresponding to a specific UID.</li>
+                    <li data-lang="imapExample3">UID SEARCH ALL: Finds all emails in the mailbox.</li>
+                    <li data-lang="imapExample4">SEARCH FROM "example@example.com": Search for messages from a specific sender.</li>
+                
+            </li>
+            <li data-lang="step5">Save Emails: To save an email, ensure you have the correct mailbox and UID, then use the 'Save email' function.</li>
+            <li data-lang="step6">Transfer Emails: After saving, provide the destination server's URL, email address and password, along with the mailbox to transfer emails to. Use the 'transfer' button to initiate the process. Check by listing the destination mailbox to confirm the transfer.</li>
+        </ol>
+    </details>
+
+    <details>
+        <summary data-lang="implementation">Implementation</summary>
+        <p data-lang="implementationContent">The IMAP Email Transfer application is implemented using the <strong>libcurl</strong> and <strong>GTK</strong> libraries.</p>
+        <h3>libcurl</h3>
+        <p data-lang="licburlImplementation"><strong>libcurl</strong> is a C library that facilitates easy networking operations, including sending and retrieving data over various internet protocols such as HTTP, FTP, and IMAP. In the IMAP Email Transfer application, <strong>libcurl</strong> is used to communicate with the IMAP server for sending and fetching email messages.</p>
+
+        <h3>GTK</h3>
+        <p data-lang="gtkImplementation"><strong>GTK</strong> (GIMP Toolkit) is a set of tools for creating user interfaces in C-based applications. In the IMAP Email Transfer application, <strong>GTK</strong> is utilized to create the graphical user interface (GUI) allowing users to input data, invoke email transfer operations, and display results.</p>
+
+    </details>
+
+
+    <details>
+        <summary data-lang="additionalResourcesTitle">Additional Resources</summary>
+        <p data-lang="additionalResourcesContent">For more detailed information on IMAP protocols:</p>
+        <ul>
+            <li><a href="https://tools.ietf.org/html/rfc3501" data-lang="rfcLink">RFC 3501 - Internet Message Access Protocol - Version 4rev1</a></li>
+        </ul>
+    </details>
+
+
+    
+</body>
+</html>
