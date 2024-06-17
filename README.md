@@ -4,6 +4,8 @@
 ## Overview
 The IMAP Email Transfer application is a GUI-based tool designed to manage emails over IMAP using the libcurl library. It allows users to perform operations such as listing mailboxes, running custom IMAP commands, saving emails, and transferring emails between different IMAP servers.
 
+More info: https://rehinapashkevych.github.io/IMAP-email-transfer/?lang=en
+
 <img src="images/Screenshot.png" alt="app img" width="700" height="500">
 
 ## Compilation
